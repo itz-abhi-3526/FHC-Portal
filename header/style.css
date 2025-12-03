@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Audrey:wght@400;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root{
+  --bg:#071226; /* deep navy */
+  --surface:#0d1b2a; /* header surface */
+  --muted:#9aa6b2;
+  --accent:#ff6b35; /* warm accent picked to harmonize with logo colors (assumption) */
+  --accent-2:#06b6d4;
+  --text:#e6eef6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+
+.site-header{position:sticky;top:0;z-index:80;background:linear-gradient(180deg,rgba(7,18,38,0.9),rgba(9,24,40,0.95));backdrop-filter:blur(6px);box-shadow:0 6px 24px rgba(2,6,23,0.6);border-bottom:1px solid rgba(255,255,255,0.02)}
+.container{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px}
+
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.logo{width:56px;height:56px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 2px 8px rgba(2,6,23,0.6)}
+.brand-text{display:flex;flex-direction:column}
+.club-name{font-family:'Audrey',serif;font-weight:700;font-size:1.35rem;letter-spacing:0.5px;text-transform:uppercase}
+.club-tag{font-size:0.78rem;color:var(--muted)}
+
+.main-nav{margin-left:18px}
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:20px;align-items:center}
+.main-nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;transition:all .18s ease}
+.main-nav a:hover{color:var(--text);background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:inset 0 -2px 0 rgba(0,0,0,0.15)}
+.main-nav a.active{color:var(--accent);background:linear-gradient(90deg,rgba(255,107,53,0.06),rgba(6,182,212,0.03))}
+
+.mobile-toggle{display:none;background:transparent;border:0;color:var(--text);font-size:22px;padding:8px;cursor:pointer;margin-left:auto}
+
+.portal{margin-left:auto;position:relative}
+.portal-btn{background:linear-gradient(135deg,#5d3a7a,#1e3a5f);color:var(--text);padding:8px 12px;border-radius:10px;border:1px solid rgba(147,90,235,0.2);font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(93,58,122,0.4);transition:all .2s ease}
+.portal-btn:hover{background:linear-gradient(135deg,#6f4a90,#2a4a75);box-shadow:0 12px 32px rgba(147,90,235,0.5)}
+.portal-menu{position:absolute;right:0;top:calc(100% + 12px);min-width:240px;background:linear-gradient(135deg,#1a0f2e,#0f1e3a);border:1px solid rgba(147,90,235,0.15);border-radius:12px;padding:8px;box-shadow:0 20px 60px rgba(93,58,122,0.5);max-height:260px;overflow:auto;animation:popupIn .3s ease-out}
+.portal-menu a{display:block;color:var(--text);text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:500;font-family:'Lora',serif;font-size:0.92rem;letter-spacing:0.2px;transition:all .15s ease}
+.portal-menu a:hover{background:rgba(147,90,235,0.2);color:#b9a3ff}
+
+@keyframes popupIn{
+  from{opacity:0;transform:scale(0.95) translateY(-8px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+
+.content{max-width:1100px;margin:36px auto;padding:0 20px}
+
+/* scrollbar for portal menu */
+.portal-menu::-webkit-scrollbar{width:10px}
+.portal-menu::-webkit-scrollbar-thumb{background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03));border-radius:8px}
+
+/* Responsive */
+@media (max-width:900px){
+  .main-nav{position:absolute;left:12px;right:12px;top:76px;background:var(--surface);border-radius:10px;padding:10px;border:1px solid rgba(255,255,255,0.02);display:none}
+  .main-nav.open{display:block}
+  .main-nav ul{flex-direction:column;gap:6px}
+  .main-nav a{display:block;padding:12px}
+  .mobile-toggle{display:inline-flex}
+  .portal{margin-left:8px}
+}
+
+/* small helpers */
+.hidden{display:none}
