@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "git": "^0.1.5",
+    "react-router-dom": "^7.9.6"
+  }
+}
