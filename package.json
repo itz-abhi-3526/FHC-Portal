@@ -8,8 +8,9 @@
     "build:dev": "NODE_ENV=production BRANCH=dev next build",
     "start": "next start",
     "export": "next export",
-    "lint": "next lint",
-    "lint:fix": "eslint --fix --ext ts,tsx app/ && prettier --write app/",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && prettier --write .",
+    "format": "prettier --write .",
     "type-check": "tsc"
   },
   "dependencies": {
