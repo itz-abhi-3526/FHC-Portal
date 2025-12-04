@@ -3,10 +3,15 @@ import { inter } from "../fonts/inter";
 import "../animations/animate.css";
 import AnimatedBody from "../animations/AnimatedBody";
 import AnimatedTitle from "../animations/AnimatedTitle";
-import AnimatedWords from "../animations/AnimatedWords";
 import { motion } from "framer-motion";
 import ContactBackground from "../components/background/ContactBackground";
 import React from "react";
+
+// Smooth heading animation that stays visible
+const headingVariants = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+};
 
 const Contact = () => {
     return (
@@ -20,24 +25,26 @@ const Contact = () => {
 
             <div className="mx-auto flex w-[90%] flex-col items-center justify-center pt-10 md:pt-0">
                 
-                {/* CONTACT Heading */}
+                {/* CONTACT Heading - fixed, stays visible */}
                 <div
-                    className={`flex flex-col items-center justify-center ${inter.className} w-full lg:max-w-[1440px]`}
+                    className={`flex flex-col items-center justify-center ${inter.className} relative w-full lg:max-w-[1440px]`}
                 >
-                    <AnimatedWords
-                        title="CONTACT"
-                        style="
-                            flex items-center justify-center
-                            text-center uppercase font-extrabold leading-[0.9em]
-                            text-[#e4ded7]
+                    <motion.h1
+                        initial="hidden"
+                        animate="show"
+                        variants={headingVariants}
+                        className="
+                            text-center uppercase font-extrabold text-[#e4ded7]
+                            leading-[0.9em] max-w-full break-words
                             text-[70px]
                             sm:text-[120px]
                             md:text-[150px]
-                            lg:text-[160px]
+                            lg:text-[140px]
                             xl:text-[220px]
-                            max-w-full break-words
                         "
-                    />
+                    >
+                        CONTACT
+                    </motion.h1>
                 </div>
 
                 {/* Content + Socials */}
@@ -46,7 +53,9 @@ const Contact = () => {
                     {/* Description Text */}
                     <div className="w-[90%] sm:w-[380px] md:w-[350px] lg:w-[420px] text-[#e4ded7] text-center md:text-left font-semibold uppercase text-[14px] sm:text-[15px] md:text-[16px]">
                         <AnimatedBody
-                            text="Got a question, proposal, project, or want to work together on something? Feel free to reach out to us!"
+                            text={
+                                "Got a question, proposal, project, or want to work together on something? Feel free to reach out to us!"
+                            }
                             className="-mb-1 inline-block overflow-hidden pt-1 sm:-mb-2 md:-mb-3 lg:-mb-4"
                         />
                     </div>
@@ -97,7 +106,6 @@ const Contact = () => {
                                 charSpace="mr-[0.01em]"
                             />
                         </Link>
-
                     </div>
                 </div>
             </div>
