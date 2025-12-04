@@ -3,72 +3,80 @@ import Link from "next/link";
 import Container from "../components/container/Container";
 import React from "react";
 
-const NavBar = () => {
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+const NavBar: React.FC = () => {
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
     e.preventDefault();
     const href = e.currentTarget.href.split("#")[1];
-    window.scrollTo({
-      top: document.getElementById(href)?.offsetTop,
-      left: 0,
-      behavior: "smooth",
-    });
+    const el = document.getElementById(href);
+    if (el) {
+      const top = el.offsetTop;
+      window.scrollTo({ top, left: 0, behavior: "smooth" });
+    }
   };
 
   return (
-    <nav className="fixed bottom-10 left-0 right-0 z-50 mx-auto flex items-center justify-center text-[#e4ded7]">
+    <nav
+      role="navigation"
+      aria-label="Primary"
+      className="fixed bottom-6 left-0 right-0 z-50 flex items-center justify-center px-4"
+    >
       <Container
-        width="130%"
-        height="60px"
-        color="rgba(255, 255, 255, 0.1)"
-        borderRadius={10}
+        width="auto"
+        height="auto"
+        color="rgba(255, 255, 255, 0.06)"
+        borderRadius={12}
         top="0px"
         left="0px"
         angle={0}
       >
-        <div className="flex items-center justify-center gap-1 px-2 py-1 rounded-lg sm:w-[383.3px] lg:w-[391.3px]">
-          <Link
-            href="#home"
-            data-blobity-magnetic="false"
-            onClick={handleScroll}
-            aria-label="Scroll to Home Section"
-          >
-            <h4 className="px-2 py-2 text-[12px] sm:px-4 sm:text-[14px] md:text-[14px]">
-              HOME
-            </h4>
-          </Link>
+        {/* inner wrapper: keep compact, single-line, scrollable on tiny screens */}
+        <div className="mx-auto max-w-[420px] w-full">
+          <div className="flex items-center justify-center">
+            <div className="flex w-full items-center justify-center gap-2 overflow-x-auto whitespace-nowrap px-2 py-1 scrollbar-none">
+              {/* Buttons are nicer for accessibility and consistent sizing */}
+              <Link
+                href="#home"
+                onClick={handleScroll}
+                data-blobity-magnetic="false"
+                aria-label="Scroll to Home Section"
+                className="inline-flex min-w-[64px] items-center justify-center rounded px-3 py-2 text-center text-[12px] font-semibold text-[#e4ded7] hover:bg-[rgba(255,255,255,0.03)]"
+              >
+                HOME
+              </Link>
 
-          <Link
-            href="#about"
-            data-blobity-magnetic="false"
-            onClick={handleScroll}
-            aria-label="Scroll to About Section"
-          >
-            <h4 className="px-2 py-2 whitespace-nowrap text-[14px] sm:px-4 sm:text-[14px] md:text-[14px]">
-              ABOUT FHC
-            </h4>
-          </Link>
+              <Link
+                href="#about"
+                onClick={handleScroll}
+                data-blobity-magnetic="false"
+                aria-label="Scroll to About Section"
+                className="inline-flex min-w-[80px] items-center justify-center rounded px-3 py-2 text-center text-[13px] font-semibold text-[#e4ded7] hover:bg-[rgba(255,255,255,0.03)]"
+              >
+                ABOUT FHC
+              </Link>
 
-          <Link
-            href="#tools"
-            data-blobity-magnetic="false"
-            onClick={handleScroll}
-            aria-label="Scroll to Tools Section"
-          >
-            <h4 className="px-2 py-2 whitespace-nowrap text-[14px] sm:px-4 sm:text-[14px] md:text-[14px]">
-              FHC PORTAL
-            </h4>
-          </Link>
+              <Link
+                href="#tools"
+                onClick={handleScroll}
+                data-blobity-magnetic="false"
+                aria-label="Scroll to Tools Section"
+                className="inline-flex min-w-[88px] items-center justify-center rounded px-3 py-2 text-center text-[13px] font-semibold text-[#e4ded7] hover:bg-[rgba(255,255,255,0.03)]"
+              >
+                FHC PORTAL
+              </Link>
 
-          <Link
-            href="#contact"
-            data-blobity-magnetic="false"
-            onClick={handleScroll}
-            aria-label="Scroll to Contact Section"
-          >
-            <h4 className="px-2 py-2 text-[12px] sm:px-4 sm:text-[14px] md:text-[14px]">
-              CONTACT
-            </h4>
-          </Link>
+              <Link
+                href="#contact"
+                onClick={handleScroll}
+                data-blobity-magnetic="false"
+                aria-label="Scroll to Contact Section"
+                className="inline-flex min-w-[64px] items-center justify-center rounded px-3 py-2 text-center text-[12px] font-semibold text-[#e4ded7] hover:bg-[rgba(255,255,255,0.03)]"
+              >
+                CONTACT
+              </Link>
+            </div>
+          </div>
         </div>
       </Container>
     </nav>
