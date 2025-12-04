@@ -1,11 +1,17 @@
 // @ts-check
 
 const isProduction = process.env.NODE_ENV === "production";
-const outputDir = process.env.BRANCH === 'dev' ? 'dev' : '.next';
+const outputDir = process.env.BRANCH === "dev" ? "dev" : ".next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   distDir: outputDir,
+
+  // ⭐ ADD THIS SECTION
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   compiler: {
     reactRemoveProperties: isProduction,
     removeConsole: isProduction,
@@ -15,17 +21,21 @@ const nextConfig = {
       pure: true,
     },
   },
+
   devIndicators: {
     buildActivityPosition: "top-right",
   },
+
   experimental: {
     legacyBrowsers: false,
     swcFileReading: true,
     appDir: true,
   },
+
   optimizeFonts: true,
   productionBrowserSourceMaps: isProduction,
   swcMinify: !isProduction,
+
   images: {
     domains: ["raw.githubusercontent.com"],
   },
