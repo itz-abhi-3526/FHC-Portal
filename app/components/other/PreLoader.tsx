@@ -6,7 +6,6 @@ const PreLoader: React.FC = () => {
     useEffect(() => {
         const tl = gsap.timeline();
 
-        // Preloader Animation
         const preLoaderAnim = () => {
             tl.to(".texts-container", {
                 duration: 0,
@@ -18,14 +17,14 @@ const PreLoader: React.FC = () => {
                     delay: 1,
                     y: 70,
                     skewY: 10,
-                    stagger: 0.4,
+                    stagger: 0.25,
                     ease: "Power3.easeOut",
                 })
                 .to(".texts-container span", {
                     duration: 1,
                     y: 70,
                     skewY: -20,
-                    stagger: 0.2,
+                    stagger: 0.15,
                     ease: "Power3.easeOut",
                 })
                 .to("body", {
@@ -68,7 +67,7 @@ const PreLoader: React.FC = () => {
         };
 
         preLoaderAnim();
-    }, []); // Empty dependency array to run the animation only on mount
+    }, []);
 
     return (
         <div
@@ -90,15 +89,24 @@ const PreLoader: React.FC = () => {
             }}
         >
             <div
-                className="texts-container w-500 flex h-60 items-center justify-center gap-[5px] overflow-hidden text-[14px] font-bold text-[#e4ded7] opacity-0 sm:gap-[10px] sm:text-[16px] md:text-[18px] lg:text-[20px]"
-                style={{
-                    height: "60px",
-                }}
+                className="texts-container w-500 flex h-60 items-center justify-center gap-[10px] overflow-hidden text-[16px] font-bold text-[#e4ded7] opacity-0 sm:text-[18px] md:text-[20px] lg:text-[24px]"
+                style={{ height: "60px" }}
             >
-                <span>Web Developer</span>
-                <span> / </span>
-               
-                <span className="flex items-center justify-center gap-3"> Building  <Logo width={30} height={30} /> Eldora UI</span>
+
+                {/* Split into loader-style chunks */}
+                <span>Launching</span>
+                <span>the</span>
+                
+                {/* Horizon word animated separately with logo */}
+                <span className="flex items-center gap-2">
+                    Horizon
+                </span>
+
+                {/* Trailing dots animate as separate spans */}
+                <span>.</span>
+                <span>.</span>
+                <span>.</span>
+
                 <div className="sub hidden"></div>
             </div>
         </div>

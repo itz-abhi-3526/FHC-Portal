@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import "./globals.css";
 import React, { ReactNode } from "react";
 import type { Metadata } from "next";
@@ -11,14 +12,13 @@ const syne = Inter({
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://www.example.com/"),
-    title: "Portfolio template - Eldora UI",
-    description:
-    "Eldora UI is a portfolio template built with React, Typescript, Tailwind CSS, and Framer Motion. 100% open-source, and customizable.",
+    title: "FISAT HORIZON CLUB",
+    description: "",
     generator: "Next.js",
     applicationName: "Portfolio template",
     keywords: [
         "Portfolio template",
-        "Eldora UI",
+        "FHC",
         "React",
         "developer",
         "frontend",
@@ -40,50 +40,36 @@ export const metadata: Metadata = {
         "frontend engineer portfolio",
     ],
     colorScheme: "dark",
+
+    // ⭐ Added favicon/icons here
+    icons: {
+        icon: "https://media.licdn.com/dms/image/v2/D560BAQESeCGh7kA2rw/company-logo_200_200/company-logo_200_200/0/1729648208598?e=2147483647&v=beta&t=AmleqeqoD8UlPDLH4ku-IqS4AYRXKMAWIngLMsYv-38",
+        shortcut:
+            "https://media.licdn.com/dms/image/v2/D560BAQESeCGh7kA2rw/company-logo_200_200/company-logo_200_200/0/1729648208598?e=2147483647&v=beta&t=AmleqeqoD8UlPDLH4ku-IqS4AYRXKMAWIngLMsYv-38",
+        apple:
+            "https://media.licdn.com/dms/image/v2/D560BAQESeCGh7kA2rw/company-logo_200_200/company-logo_200_200/0/1729648208598?e=2147483647&v=beta&t=AmleqeqoD8UlPDLH4ku-IqS4AYRXKMAWIngLMsYv-38",
+    },
+
     openGraph: {
-        title: "Portfolio template - Eldora UI",
-        description:
-      "Eldora UI is a portfolio template built with React, Typescript, Tailwind CSS, and Framer Motion. 100% open-source, and customizable.",
-        url: "https://www.eldoraui.site/",
-        siteName: "www.eldoraui.site",
+        title: "FHC PORTAL",
+        description: "",
+        url: "",
+        siteName: "",
         images: [
             {
-                url: "./public/metadata.jpg",
+                url: "https://media.licdn.com/dms/image/v2/D560BAQESeCGh7kA2rw/company-logo_200_200/company-logo_200_200/0/1729648208598?e=2147483647&v=beta&t=AmleqeqoD8UlPDLH4ku-IqS4AYRXKMAWIngLMsYv-38",
                 width: 1200,
                 height: 630,
-                alt: "Portfolio template - Eldora UI",
+                alt: "",
             },
         ],
         locale: "en-US",
         type: "website",
     },
-    twitter: {
-        card: "summary_large_image",
-        title: "Portfolio template - Eldora UI",
-        description:
-      "Portfolio template - Eldora UI is a portfolio template built with React, Typescript, Tailwind CSS, and Framer Motion. 100% open-source, and customizable.",
-        creator: "@karthikmudunuri",
-        creatorId: "0000000000",
-        images: ["./public/metadata.jpg"],
-    },
-    robots: {
-        index: true,
-        follow: true,
-        nocache: false,
-        googleBot: {
-            index: true,
-            follow: false,
-            noimageindex: true,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
-        },
-    },
-    category: "technology",
 };
 
 type RootLayoutProps = {
-  children: ReactNode;
+    children: ReactNode;
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {

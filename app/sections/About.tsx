@@ -11,7 +11,7 @@ const About = () => {
         >
             <div className="mx-auto flex w-[90%] flex-col items-center justify-center lg:max-w-[1212.8px]">
                 <AnimatedTitle
-                    text={"Mudunuri bhaskara karthikeya varma."}
+                    text={"About FHC"}
                     className={
                         "mb-10 text-left text-[40px] font-bold leading-[0.9em] tracking-tighter text-[#e4ded7] sm:text-[45px] md:mb-16 md:text-[60px] lg:text-[80px]"
                     }
@@ -21,16 +21,16 @@ const About = () => {
 
                 <div className="mx-auto flex w-[100%] flex-col lg:max-w-[1200px] lg:flex-row lg:gap-20">
                     <div className="mb-10 flex w-[100%] flex-col gap-4 text-[18px] font-medium  leading-relaxed tracking-wide text-[#e4ded7] md:mb-16 md:gap-6 md:text-[20px] md:leading-relaxed lg:mb-16  lg:max-w-[90%] lg:text-[24px] ">
-                        <AnimatedBody text="pursuing my B.tech in woxen university. I want to learn more about Front-end & Full Stack Development and i have a good command in javascript, Next.js, react.js, HTML&CSS. I believe in trying out new things and picking up challenges as it is always great to have knowledge in variety of subjects and have various experiences to share. im more interested in developing my weaknesses..." />
+                        <AnimatedBody text="FISAT HORIZON CLUB is a student driven tech community dedicated to empowering learners through hands-on experience, workshops, and industry-ready skills. Founded by students with a passion for sharing knowledge, FHC has grown into one of FISAT's most active and recognized tech clubs - promoting innovation, collaboration, and continuous learning across all domains of Computer Science." />
 
                         <AnimatedBody
                             delay={0.1}
-                            text="Whether I’m designing a sleek user interface or coding a complex application, I’m always striving to create something unique and innovative. I love experimenting with new technologies and staying up-to-date with the latest trends in the tech world."
+                            text="Our mission is to empower individuals by providing comprehensive training and hands-on experience in cutting-edge technologies across all domains of Computer Science. We strive to foster a learning environment that promotes innovation, collaboration, and professional growth."
                         />
 
                         <AnimatedBody
                             delay={0.2}
-                            text="Right now, I’m working on some exciting projects that I can’t wait to share with you. But I’m always open to new opportunities and collaborations."
+                            text="To be a leading technology development club recognized for advancing knowledge and skills in computer science, creating a community of tech enthusiasts who drive technological progress and make a positive impact on the industry."
                         />
                     </div>
                 </div>
