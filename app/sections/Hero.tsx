@@ -18,7 +18,12 @@ const container = {
 
 const charAnim = {
   hidden: { opacity: 0, y: 12, scale: 0.98 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 500, damping: 30 } },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: "spring", stiffness: 500, damping: 30 },
+  },
 };
 
 const Hero: React.FC = () => {
@@ -60,9 +65,7 @@ const Hero: React.FC = () => {
                 <motion.span
                   key={`${char}-${idx}`}
                   variants={charAnim}
-                  className={`inline-block ${
-                    isSpace ? "w-[0.38rem] md:w-[0.4rem] lg:w-[0.45rem]" : ""
-                  }`}
+                  className={`inline-block ${isSpace ? "w-[0.38rem] md:w-[0.4rem] lg:w-[0.45rem]" : ""}`}
                   aria-hidden="true"
                 >
                   {char}
