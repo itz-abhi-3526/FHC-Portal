@@ -3,7 +3,14 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "../animations/animate.css";
 import AnimatedTitle from "../animations/AnimatedTitle";
-import { FaCalendarAlt, FaChalkboardTeacher, FaTools, FaProjectDiagram, FaTrophy, FaUsers } from "react-icons/fa";
+import {
+  FaCalendarAlt,
+  FaChalkboardTeacher,
+  FaTools,
+  FaProjectDiagram,
+  FaTrophy,
+  FaUsers,
+} from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
@@ -126,7 +133,7 @@ const ToolsCarousel: React.FC = () => {
         >
           {/* Card viewport with fixed height so it does not collide */}
           <div
-            className={`mx-auto overflow-visible rounded-xl`}
+            className="mx-auto overflow-visible rounded-xl"
             style={{ height: CARD_HEIGHT }}
             aria-roledescription="carousel"
             aria-label="FHC portal features"
@@ -147,7 +154,9 @@ const ToolsCarousel: React.FC = () => {
                   <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-[rgba(255,255,255,0.03)] text-[#e4ded7]">
                     {features[index].icon}
                   </div>
-                  <h3 className="text-[20px] font-bold text-[#e4ded7]">{features[index].title}</h3>
+                  <h3 className="text-[20px] font-bold text-[#e4ded7]">
+                    {features[index].title}
+                  </h3>
                 </div>
 
                 <p className="text-[15px] text-[#d7d0c7] leading-relaxed flex-1">
@@ -177,7 +186,13 @@ const ToolsCarousel: React.FC = () => {
               aria-label="Previous feature"
               className="rounded-full bg-[rgba(255,255,255,0.03)] p-2 text-[#e4ded7] shadow hover:bg-[rgba(255,255,255,0.06)]"
             >
-              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.8}>
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+              >
                 <path d="M12 16L6 10l6-6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
@@ -187,7 +202,13 @@ const ToolsCarousel: React.FC = () => {
               aria-label="Next feature"
               className="rounded-full bg-[rgba(255,255,255,0.03)] p-2 text-[#e4ded7] shadow hover:bg-[rgba(255,255,255,0.06)]"
             >
-              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.8}>
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+              >
                 <path d="M8 4l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
@@ -198,16 +219,21 @@ const ToolsCarousel: React.FC = () => {
             {features.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setPage(([p]) => [i, i - index])}
+                onClick={() => setPage([i, i - index])}
                 aria-label={`Go to feature ${i + 1}`}
-                className={`h-2 w-8 rounded-full transition-all ${i === index ? "bg-[#e4ded7]" : "bg-[rgba(255,255,255,0.06)]"}`}
+                className={`h-2 w-8 rounded-full transition-all ${
+                  i === index ? "bg-[#e4ded7]" : "bg-[rgba(255,255,255,0.06)]"
+                }`}
               />
             ))}
           </div>
 
           {/* Single CTA button below the carousel */}
           <div className="mt-6 flex w-full items-center justify-center">
-            <Link href="https://fhc-portal-fe.vercel.app/auth" className="inline-flex items-center gap-2 rounded-md bg-[#e4ded7] px-6 py-3 text-sm font-semibold text-[#0E1016] shadow hover:brightness-95">
+            <Link
+              href="https://fhc-portal-fe.vercel.app/auth"
+              className="inline-flex items-center gap-2 rounded-md bg-[#e4ded7] px-6 py-3 text-sm font-semibold text-[#0E1016] shadow hover:brightness-95"
+            >
               Unlock FHC Portal
             </Link>
           </div>
