@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { inter } from "../fonts/inter"; // adjust path if needed
+import { inter } from "../fonts/inter";
 import HeroBackground from "../components/background/HeroBackground";
+
 const titleText = "Imagine. Build. Impact.";
 
+// container animation
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -16,13 +18,14 @@ const container = {
   },
 };
 
+// per-character animation
 const charAnim = {
-  hidden: { opacity: 0, y: 12, scale: 0.98 },
+  hidden: { opacity: 0, y: 14, scale: 0.96 },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 500, damping: 30 },
+    transition: { type: "spring", stiffness: 500, damping: 28 },
   },
 };
 
@@ -32,41 +35,52 @@ const Hero: React.FC = () => {
       id="home"
       aria-label="Hero"
       role="banner"
-      className="relative flex min-h-screen w-full items-center justify-center overflow-visible"
+      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden"
     >
-      {/* Background placed behind content */}
+      {/* Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <HeroBackground />
       </div>
 
-      {/* Foreground content */}
+      {/* Foreground Content */}
       <div className="relative z-10 flex w-full items-center justify-center px-6">
         <div
-          className={`${inter.className} z-20 w-full max-w-[1100px]`}
+          className={`${inter.className} z-20 w-full max-w-[1050px]`}
           style={{ WebkitFontSmoothing: "antialiased" }}
         >
-          {/* Accessible textual fallback for screen readers */}
-          <span className="sr-only">Imagine. Build. Impact.</span>
+          {/* Screen Reader Fallback */}
+          <span className="sr-only">{titleText}</span>
 
-          {/* Animated headline (per-character) */}
+          {/* Animated Text */}
           <motion.h1
-            aria-hidden={false}
             initial="hidden"
             animate="show"
             variants={container}
-            className="mb-1 mx-auto text-center text-[40px] font-bold leading-[0.95] tracking-tight text-[#e4ded7] sm:text-[45px] md:mb-8 md:text-[60px] lg:text-[80px]"
-            style={{ overflow: "visible" }}
+            className="
+              mx-auto text-center font-bold tracking-tight text-[#e4ded7]
+              text-[32px]
+              sm:text-[42px]
+              md:text-[56px]
+              lg:text-[78px]
+              xl:text-[88px]
+              leading-[1]
+              mb-4
+              overflow-visible
+            "
           >
-            {/* map characters to inline-block motion spans so nothing is absolutely-positioned */}
-            {Array.from(titleText).map((char, idx) => {
-              // Preserve spaces but render them as thin non-breaking gaps so wrapping is possible
+            {Array.from(titleText).map((char, index) => {
               const isSpace = char === " ";
+
               return (
                 <motion.span
-                  key={`${char}-${idx}`}
+                  key={index}
                   variants={charAnim}
-                  className={`inline-block ${isSpace ? "w-[0.38rem] md:w-[0.4rem] lg:w-[0.45rem]" : ""}`}
                   aria-hidden="true"
+                  className={`inline-block ${
+                    isSpace
+                      ? "w-[0.35rem] sm:w-[0.45rem] md:w-[0.55rem] lg:w-[0.65rem]"
+                      : ""
+                  }`}
                 >
                   {char}
                 </motion.span>
